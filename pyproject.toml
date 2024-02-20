@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "BRS_Assignment"
+authors = [
+    {name = "Ahmad Al-Musa", email = "almusa.ahm@gmail.com"},
+]
+description = "bla bla bla"
+version = "0.1.0"
+dependencies = ["matplotlib", "pyyaml", "typing-extensions", "requests"]
+requires-python = ">=3.11.0"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.scripts]
+assignment_analaysis = "BRS_Assignment.Analysis:Analysis"
+
+[tool.hatch.build.targets.wheel]
+packages = ["BRS_Assignment"]
+data-files = [
+    {include = "configs/*.yml", from = "BRS_Assignment/configs"}
+]
